@@ -1,0 +1,483 @@
+
+/* Import from Google Fonts. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+/* Define reusable colors and spacing values. */
+:root {
+    --background: #171916;
+    --surface: #20221e;
+    --text: #f2ebdd;
+    --muted: #b9b8ae;
+    --accent: #d7b98e;
+    --border: #41443b;
+}
+
+/* Make width calculations predictable for every element. */
+* {
+    box-sizing: border-box;
+}
+
+/* Enable smooth scrolling when navigation links are clicked. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Style the whole page. */
+body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/*Make photographs responsive and remove inline image gaps. */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Make links inherit the site's text color. */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Highlight links when the mouse moves over them. */
+a:hover {
+    color: var(--accent);
+}
+
+/* Style keyboard focus so links and buttons are easier to use. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* Style the header and place its contents on one line. */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 7%;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Style the site logo. */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* Give the second part of the logo a gold color. */
+.logo span {
+    color: var(--accent);
+}
+
+/* Remove default list spacing from the navigation. */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Style navigation links. */
+.nav-links a {
+    color: var(--muted);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+/* Change navigation link color on hover. */
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* Create the large introductory section. */
+.hero {
+    min-height: 570px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 100px 10%;
+    background:
+        linear-gradient(90deg, rgba(23, 25, 22, 0.97), rgba(23, 25, 22, 0.55)),
+        url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2000&q=85');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--border);
+}
+
+/*  Limit the width of the introductory text. */
+.hero-content {
+    max-width: 680px;
+}
+
+/*  Style small uppercase labels throughout the website. */
+.eyebrow {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Style the main heading. */
+.hero h1 {
+    max-width: 650px;
+    margin: 18px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+/* Make emphasized headings gold and italic. */
+h1 em,
+h2 em {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* Style the introductory paragraph. */
+.intro {
+    max-width: 540px;
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+/*  Create a reusable button appearance. */
+.button {
+    display: inline-block;
+    padding: 13px 23px;
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    background-color: var(--accent);
+    color: #171916;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/*  Change button colors when hovered over. */
+.button:hover {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+/*  Style the small slogan below the introductory content. */
+.hero-note {
+    margin-top: 65px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+}
+
+/* Give every major section consistent spacing. */
+.section {
+    padding: 90px 8%;
+    scroll-margin-top: 20px;
+}
+
+/* Center the headings and descriptions of sections. */
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+/* Style secondary headings. */
+.section-heading h2,
+.about-content h2 {
+    margin: 10px 0 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/*Style descriptive text in section headings. */
+.section-heading > p:last-child {
+    color: var(--muted);
+}
+
+/*Create a responsive gallery grid */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.photo-card {
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Crop each image consistently. */
+.photo-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Zoom photographs slightly on hover. */
+.photo-card a:hover img {
+    transform: scale(1.035);
+    opacity: 0.88;
+}
+
+/* Style photo titles. */
+.photo-card h3 {
+    margin: 14px 0 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+/*  Style the photo categories. */
+.photo-card figcaption p {
+    margin: 2px 0 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/*  Give the favorites section a slightly different background. */
+.favorites-section {
+    background-color: var(--surface);
+}
+
+/* Style the numbered favorites list. */
+.favorite-list {
+    max-width: 850px;
+    margin: 0 auto;
+    padding-left: 28px;
+}
+
+/* Separate each favorite with border. */
+.favorite-list li {
+    padding: 18px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--accent);
+}
+
+/* Style the links to the favorite photographs. */
+.favorite-list li a {
+    color: var(--text);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+}
+
+/* Highlight a favorite photograph when hovered over. */
+.favorite-list li a:hover {
+    color: var(--accent);
+}
+
+/* Display the description beside the favorite's title. */
+.favorite-list li span {
+    display: inline-block;
+    margin-left: 12px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/*  Arrange the biography image and text in two columns. */
+.about-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: 65px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Style the photographer's portrait. */
+.about-image img {
+    width: 100%;
+    max-height: 540px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+}
+
+.about-content {
+    max-width: 560px;
+}
+
+/*  Use muted colors for biography paragraphs. */
+.about-content > p:not(.eyebrow) {
+    color: var(--muted);
+}
+
+/* Make important text stand out. */
+strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* Style the contact form container. */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+/* Style labels above the form fields. */
+.contact-form label {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/*  Style text inputs and the message area*/
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background-color: var(--surface);
+    color: var(--text);
+    font: inherit;
+}
+
+/* Give placeholder text a softer color. */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #96978d;
+}
+
+/* Let visitors resize the message field vertically. */
+.contact-form textarea {
+    resize: vertical;
+}
+
+/*  send button aligned to the left*/
+.contact-form .button {
+    align-self: flex-start;
+    margin-top: 12px;
+}
+
+/*  line and spacing above the footer. */
+.site-footer {
+    padding: 35px 8%;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+/* Style footer text. */
+.site-footer p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/*  Style the footer link. */
+.site-footer a {
+    color: var(--accent);
+    font-size: 0.85rem;
+}
+
+/* layout for tablets and smaller screens. */
+@media (max-width: 800px) {
+    .site-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .hero {
+        min-height: 480px;
+        padding: 75px 7%;
+    }
+
+    .section {
+        padding: 65px 6%;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-image {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .about-content {
+        max-width: 700px;
+    }
+}
+
+/*  Adjusting the gallery and navigation for mobile phones. */
+@media (max-width: 520px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .nav-links {
+        gap: 8px 13px;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        min-height: 430px;
+        padding: 60px 6%;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-note {
+        margin-top: 40px;
+    }
+
+    .section {
+        padding: 55px 6%;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .favorite-list li span {
+        display: block;
+        margin: 5px 0 0;
+    }
+
+    .site-footer {
+        padding: 30px 6%;
+    }
+}
